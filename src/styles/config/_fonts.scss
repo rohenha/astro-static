@@ -1,0 +1,45 @@
+// Example
+
+// @font-face {
+//   font-family: 'Futura PT Cond';
+//   font-style: normal;
+//   font-weight: 500;
+//   font-display: swap;
+
+//   src: url('/assets/fonts/futura/FuturaPTCond-Medium.woff2') format('woff2'),
+//       url('/assets/fonts/futura/FuturaPTCond-Medium.woff') format('woff'),
+//       url('/assets/fonts/futura/FuturaPTCond-Medium.ttf') format('truetype');
+// }
+
+// Example Variable
+
+// @include font-face(
+//   "Clash",
+//   "assets/fonts/clash/ClashDisplay-Variable",
+//   ("woff2var", "woff2supvar", "woff")
+// ) {
+//   font-weight: 100 1000;
+//   font-style: normal;
+//   font-stretch: 25% 151%;
+//   font-display: swap;
+// }
+
+// @include font-face(
+//   "Radio Grotesk",
+//   "assets/fonts/radiogrotesk/RadioGrotesk-Regular",
+//   ("woff2", "woff", "ttf")
+// ) {
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@include font-face(
+  "Radio Grotesk",
+  "fonts/RadioGrotesk-Regular",
+  ("woff2", "woff", "ttf")
+) {
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

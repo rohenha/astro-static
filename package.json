@@ -1,0 +1,28 @@
+{
+  "name": "astro-test",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "animejs": "^3.2.1",
+    "astro": "^2.3.0",
+    "astro-compress": "^1.1.35",
+    "astro-compressor": "^0.4.0",
+    "modujs": "^1.4.2",
+    "stats.js": "^0.17.0",
+    "vanilla-lazyload": "^17.8.3"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "autoprefixer": "^10.4.14",
+    "postcss-inline-svg": "^6.0.0",
+    "sass": "^1.62.0"
+  }
+}

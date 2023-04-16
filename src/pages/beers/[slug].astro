@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { getBeers } from '@libs/beers'
+
+export async function getStaticPaths() {
+
+  const beers = await getBeers()
+  const data = []
+
+  beers.forEach((beer) => {
+    data.push({ params: { slug: beer.slug }, props: beer })
+  });
+  
+  return data
+}
+
+const { name } = Astro.props;
+---
+
+
+<Layout title={ name } template="beer">
+  <main>
+    <h1>{ name }</h1>
+    <a href="/">Home</a>
+  </main>
+</Layout>

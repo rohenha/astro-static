@@ -1,0 +1,26 @@
+:root {
+  // Typos
+  --font-regular: #{$font-regular};
+  --font-title: #{$font-title};
+  --fsize: #{$font-size-percent};
+
+  // Animations
+  --anim-duration: .25s;
+  --anim-easing: #{$p1easeinout};
+
+  // Spaces
+  --vr: #{$vr};
+
+  // Grid
+  --gwidth: #{$row-width};
+
+  // --gcols: #{$total-columns};
+  // --ggutter: #{$column-gutter};
+  // --gpadding: #{$column-padding};
+  // --ggap: 3rem;
+
+  // Colors
+  // @each $name, $color in $colors {
+  //   --c#{"" + $name}: #{$color};
+  // }
+}

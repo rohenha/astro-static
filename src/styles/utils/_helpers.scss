@@ -1,0 +1,52 @@
+//  H E L P E R S
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// @each $bp_o in $bps {
+//   $bp_k: nth($bp_o, 1);
+//   $bp_v: nth($bp_o, 2);
+
+//   @media #{$bp_k} {
+//     //  Text align
+//     //  ───────────────────────────────────
+//     @include selector('.text-left', $bp_v) {
+//       text-align: left !important;
+//     }
+
+//     @include selector('.text-center', $bp_v) {
+//       text-align: center !important;
+//     }
+
+//     @include selector('.text-right', $bp_v) {
+//       text-align: right !important;
+//     }
+
+//     //  Colors
+//     //  ───────────────────────────────────
+//     @each $color in $colors {
+//       $c_name: nth($color, 1);
+//       $c_hex: nth($color, 2);
+//       @include selector('.text-#{$c_name}', $bp_v) {
+//         &,
+//         p,
+//         a:not(.button) {
+//           color: $c_hex !important;
+//         }
+//       }
+//     }
+
+//     //  Backgrounds
+//     //  ───────────────────────────────────
+//     @each $color in $colors {
+//       $c_name: nth($color, 1);
+//       $c_hex: nth($color, 2);
+//       @include selector('.bg-#{$c_name}', $bp_v) {
+//         background-color: $c_hex;
+//       }
+//     }
+//   }
+// }
+
+.mg-auto {
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,0 +1,70 @@
+// Function to convert px to rem
+@function px2rem($size) {
+  $remsize: $size / $font-size-base;
+
+  @return #{$remSize}rem;
+}
+
+// Function to convert letter spacing photoshop to rem
+@function ls2rem($size) {
+  $remsize: $size / 1000;
+
+  @return #{$remsize}rem;
+}
+
+// ==========================================================================
+// Tools / Font Faces
+// ==========================================================================
+
+$global-font-file-formats: "woff2", "woff" !default;
+
+// Builds the `src` list for an `@font-face` declaration.
+// @link https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/utilities/_font-source-declaration.scss
+// @link http://goo.gl/Ru1bKP
+// @param  {String} $font-family  - The font family name.
+// @param  {String} $file-path    - The path to the font family.
+// @param  {List}   $file-formats - The file formats to request.
+// @return {List}
+
+// @require {function} list-contains
+
+// @access private
+
+@function font-source-declaration(
+  $font-family,
+  $file-path,
+  $file-formats
+) {
+  $src: ();
+  $formats-map: (
+    eot:   url("#{$assets-path}#{$file-path}.eot?#iefix") format("embedded-opentype"),
+    woff2: url("#{$assets-path}#{$file-path}.woff2") format("woff2"),
+    woff2var: url("#{$assets-path}#{$file-path}.woff2") format("woff2-variations"),
+    woff2supvar: url("#{$assets-path}#{$file-path}.woff2") format('woff2 supports variations'),
+    woff:  url("#{$assets-path}#{$file-path}.woff") format("woff"),
+    ttf:   url("#{$assets-path}#{$file-path}.ttf") format("truetype"),
+    svg:   url("#{$assets-path}#{$file-path}.svg##{$font-family}") format("svg"),
+  );
+
+  @each $key in $file-formats {
+    $format: map-get($formats-map, $key);
+    $src: append($src, $format, comma);
+  }
+
+  @return $src;
+}
+
+$global-font-file-formats: "woff2", "woff" !default;
+
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $file-formats: $global-font-file-formats
+) {
+  @font-face {
+    @content;
+
+    font-family: $font-family;
+    src: font-source-declaration( $font-family, $file-path, $file-formats);
+  }
+}

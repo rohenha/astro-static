@@ -1,0 +1,21 @@
+// Vertically-center the direct descendants of the current element.
+// Centering is achieved by displaying children as inline-blocks. Any whitespace
+// between elements is nullified by redefining the font size of the container
+// and its children.
+// @output `font-size`, `display`, `vertical-align`
+@mixin o-vertical-center {
+  font-size: 0;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+}

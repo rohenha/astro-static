@@ -1,0 +1,48 @@
+---
+import { getBeers } from '@libs/beers'
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import Pagination from '@components/Pagination.astro';
+
+const pages = []
+export async function getStaticPaths({ paginate }) {
+  const beers = await getBeers()  	
+  // Génère des pages à partir de notre tableau d'astronautes, avec 2 par page  
+  return paginate(beers, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname.split('/');
+const firstPath = pathname[1];
+---
+
+<Layout title="Welcome to Astro." template="beersListing">
+	<main class="t-beers">
+		<h1>Beers</h1>
+		<div class="t-beers__list">
+			{page.data.map((beer) => (
+				<Card title={beer.name} url={`/beers/${beer.slug}`} />
+			))}
+		</div>
+		<Pagination length={page.lastPage} 
+        currentUrl={page.url.current} 
+        currentPage={page.currentPage} 
+        firstUrl={`/${firstPath}`} 
+        prevUrl={page.url.prev} 
+        nextUrl={page.url.next} 
+        lastUrl={`/${firstPath}/${page.lastPage}`}
+      />
+	</main>
+</Layout>
+
+
+<style lang="scss">
+	.t-beers {
+		padding: 0 3rem;
+		&__list {
+			display: grid;
+			gap: 1.5rem;
+			margin-bottom: 6rem;
+		}
+	}
+</style>

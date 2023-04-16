@@ -1,0 +1,60 @@
+/* stylelint-disable function-comma-space-after */
+@if $debgrid {
+  $colw: #{math.div(1, $total-columns) * 100%};
+
+  body {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 50%;
+      z-index: 800;
+      display: block;
+      width: 100%;
+      max-width: $row-width;
+      width: calc(100% - #{$column-padding * 2});
+      max-width: calc(#{$row-width} - #{$column-padding * 2});
+      height: 100%;
+      margin: 0 auto;
+      background: repeating-linear-gradient(
+        90deg,
+        $colorcolumnodd,
+        $colorcolumnodd calc(#{$colw} - #{$column-gutter}),
+        $colorgutter  calc(#{$colw} - #{$column-gutter}),
+        $colorgutter #{$colw},
+        $colorcolumneven #{$colw},
+        $colorcolumneven calc(#{$colw} * 2 - #{$column-gutter}),
+        $colorgutter calc(#{$colw} * 2 - #{$column-gutter}),
+        $colorgutter calc(#{$colw} * 2),
+      );
+      background-size: calc(100% + #{$column-gutter}) 100%;
+      pointer-events: none;
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+.m-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat($total-columns, 1fr);
+  gap: $vr $column-gutter;
+  padding: 0 $column-padding;
+  width: 100%;
+  max-width: $row-width;
+  margin: 0 auto;
+
+  &.-xl {
+    max-width: 100%;
+  }
+
+  &.-vcenter {
+    align-items: center;
+  }
+
+  &.-vbottom {
+    align-items: flex-end;
+  }
+}

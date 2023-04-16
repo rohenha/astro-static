@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro'
+import { getBeers } from '@libs/beers'
+
+const beers = await getBeers()
+---
+
+<Layout title="Welcome to Astro." template="home">
+	<main>
+		<h1>Home</h1>
+		<div class="t-home__list">
+			{beers.map((beer) => (
+				<Card title={beer.name} url={`beers/${beer.slug}`} />
+			))}
+		</div>
+	</main>
+</Layout>
+
+
+<style lang="scss">
+	.t-home {
+		&__list {
+			display: grid;
+			gap: 1.5rem;
+		}
+	}
+</style>

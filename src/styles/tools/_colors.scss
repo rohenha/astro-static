@@ -1,0 +1,7 @@
+//  M I X I N S
+//  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// Function to selector color
+@function clr($key) {
+  @return map-get($colors, $key);
+}

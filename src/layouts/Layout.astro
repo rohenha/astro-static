@@ -1,0 +1,66 @@
+---
+// import '../styles/site.scss'
+
+export interface Props {
+	title: string;
+	template: string;
+}
+
+const { title, template } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body data-barba="wrapper" data-module-website="website" data-animate>
+    <div id="js-loader" class="a-loader"></div>
+    <div class="js-page" data-barba="container" data-barba-namespace={template} data-website="template">
+      <slot />
+    </div>
+	</body>
+</html>
+
+<style lang="scss" is:global>
+	// @use "sass:math";
+
+	// @import '../styles/tools/accessibility';
+	// @import '../styles/tools/colors';
+	// @import '../styles/tools/fonts';
+	// @import '../styles/tools/grid';
+	// @import '../styles/tools/position';
+	// @import '../styles/tools/responsive';
+	// @import '../styles/tools/selector';
+
+	// // @import '../styles/utils/reset';
+	// // @import '../styles/utils/config-reset';
+	// // @import '../styles/utils/helpers';
+	// // @import '../styles/utils/print';
+
+	// @import '../styles/config/breakpoints';
+	// @import '../styles/config/colors';
+	// @import '../styles/config/config';
+	// @import '../styles/config/ease';
+	// @import '../styles/config/fonts';
+	// @import '../styles/config/mixins';
+	// @import '../styles/config/vars';
+
+	// @import '../styles/global/animations';
+	// @import '../styles/global/commons';
+	// @import '../styles/global/grid-grid';
+	// @import '../styles/global/grid';
+	// @import '../styles/global/icons';
+	// @import '../styles/global/state';
+	// @import '../styles/global/typography';
+	@import '../styles/site.scss';
+	/* import '../styles/site.scss' */
+</style>
+
+<script>
+import '../scripts/site.js'
+</script>

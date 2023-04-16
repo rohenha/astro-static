@@ -1,0 +1,12 @@
+// Function to set media queries easier
+// @include media(md, only) {
+//   background-color: red;
+// }
+
+@mixin media($size, $type) {
+  $media: map-get($breakpoints, $size);
+  $bp: map-get($media, $type);
+  @media #{$bp}  {
+    @content();
+  }
+} 
